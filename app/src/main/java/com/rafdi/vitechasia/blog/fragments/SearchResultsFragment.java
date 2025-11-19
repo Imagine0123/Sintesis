@@ -33,6 +33,9 @@ import com.rafdi.vitechasia.blog.utils.DataHandler;
 import com.rafdi.vitechasia.blog.utils.SearchHistoryManager;
 import com.rafdi.vitechasia.blog.utils.CategoryManager;
 import com.rafdi.vitechasia.blog.utils.PaginationUtils;
+import com.rafdi.vitechasia.blog.utils.ErrorHandler;
+import com.rafdi.vitechasia.blog.utils.RetryWithBackoff;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -200,42 +203,139 @@ public class SearchResultsFragment extends Fragment implements ArticleVerticalAd
 
         Log.d("SearchResultsFragment", "Fetching all articles to filter by query: " + searchQuery);
         
-        // Use getAllArticles to get all articles regardless of category
-        DataHandler.getInstance().getAllArticles(new DataHandler.DataLoadListener() {
-            @Override
-            public void onDataLoaded(List<Article> articles) {
-                Log.d("SearchResultsFragment", "Received " + (articles != null ? articles.size() : 0) + " articles from DataHandler");
-                requireActivity().runOnUiThread(() -> {
-                    try {
-                        // Filter articles based on search query
-                        allSearchResults = new ArrayList<>();
-                        int matchCount = 0;
-                        
-                        if (articles != null) {
-                            for (Article article : articles) {
-                                if (matchesSearchQuery(article, searchQuery)) {
-                                    allSearchResults.add(article);
-                                    matchCount++;
-                                }
-                            }
+        // Show loading state
+        showLoading(true);
+        
+        // Use RetryWithBackoff for the API call
+        RetryWithBackoff<Object> retryWithBackoff = new RetryWithBackoff<>(requireContext());
+        retryWithBackoff.execute(
+            () -> {
+                // This runs on a background thread
+                final List<Article>[] result = new List[1];
+                final Object lock = new Object();
+                
+                DataHandler.getInstance().getAllArticles(new DataHandler.DataLoadListener() {
+                    @Override
+                    public void onDataLoaded(List<Article> articles) {
+                        synchronized (lock) {
+                            result[0] = articles;
+                            lock.notify();
                         }
-                        
-                        Log.d("SearchResultsFragment", "Found " + matchCount + " articles matching query");
-                        applyFilters();
-                    } catch (Exception e) {
-                        Log.e("SearchResultsFragment", "Error processing search results", e);
-                        showNoResults();
+                    }
+
+                    @Override
+                    public void onError(String message) {
+                        synchronized (lock) {
+                            result[0] = null;
+                            lock.notify();
+                        }
                     }
                 });
-            }
+                
+                // Wait for the callback to complete
+                synchronized (lock) {
+                    try {
+                        lock.wait(10000); // 10 second timeout
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        return null;
+                    }
+                }
+                
+                if (result[0] == null) {
+                    throw new Exception("Failed to load articles");
+                }
+                
+                return result[0];
+            },
+            new RetryWithBackoff.Callback<Object>() {
+                @Override
+                public void onSuccess(Object result) {
+                    if (result instanceof List) {
+                        handleSearchResults((List<Article>) result);
+                    } else {
+                        handleSearchError(new Exception("Unexpected result type"));
+                    }
+                }
 
-            @Override
-            public void onError(String message) {
-                requireActivity().runOnUiThread(() -> {
-                    showNoResults();
-                });
+                @Override
+                public void onError(String errorMessage, boolean isNetworkError) {
+                    handleSearchError(new Exception(errorMessage));
+                }
             }
+        );
+    }
+
+    private void handleSearchError(Throwable throwable) {
+        Log.e("SearchResultsFragment", "Search failed", throwable);
+        requireActivity().runOnUiThread(() -> {
+            showLoading(false);
+            
+            // Use ErrorHandler to get a user-friendly error message
+            int errorResId = ErrorHandler.handleError(requireContext(), throwable);
+            String errorMessage = getString(errorResId);
+            
+            // Show error with retry option
+            showErrorWithRetry(errorMessage);
         });
+    }
+    
+    private void handleSearchResults(List<Article> articles) {
+        Log.d("SearchResultsFragment", "Processing " + (articles != null ? articles.size() : 0) + " articles");
+        
+        try {
+            // Filter articles based on search query
+            allSearchResults = new ArrayList<>();
+            int matchCount = 0;
+            
+            if (articles != null) {
+                for (Article article : articles) {
+                    if (matchesSearchQuery(article, searchQuery)) {
+                        allSearchResults.add(article);
+                        matchCount++;
+                    }
+                }
+            }
+            
+            Log.d("SearchResultsFragment", "Found " + matchCount + " articles matching query");
+            
+            requireActivity().runOnUiThread(() -> {
+                applyFilters();
+                showLoading(false);
+            });
+        } catch (Exception e) {
+            Log.e("SearchResultsFragment", "Error processing search results", e);
+            handleSearchError(e);
+        }
+    }
+    
+    private void showLoading(boolean show) {
+        if (show) {
+            progressBar.setVisibility(View.VISIBLE);
+            btnLoadMore.setVisibility(View.GONE);
+            noResultsText.setVisibility(View.GONE);
+        } else {
+            progressBar.setVisibility(View.GONE);
+        }
+    }
+    
+    private void showErrorWithRetry(String errorMessage) {
+        resultsRecyclerView.setVisibility(View.GONE);
+        noResultsText.setVisibility(View.VISIBLE);
+        noResultsText.setText(errorMessage);
+        noResultsText.setOnClickListener(v -> performSearch());
+        
+        // Show a snackbar with the error message and retry button
+        if (getView() != null) {
+            Snackbar.make(
+                getView(),
+                errorMessage,
+                Snackbar.LENGTH_INDEFINITE
+            )
+            .setAction(R.string.error_load_retry, v -> performSearch())
+            .setActionTextColor(getResources().getColor(R.color.primary, null))
+            .show();
+        }
     }
 
     private boolean matchesSearchQuery(Article article, String query) {

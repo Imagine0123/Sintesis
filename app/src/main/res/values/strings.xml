@@ -249,6 +249,18 @@
     <string name="select_date_range">Select date range</string>
     <string name="date_range_all_time">All Time</string>
     <string name="date_range_24_hours">Last 24 Hours</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network_retry">Network error. Tap to retry</string>
+    <string name="error_network_connection">No internet connection</string>
+    <string name="error_network_timeout">Request timed out. Please try again</string>
+    <string name="error_server">Server error. Please try again later</string>
+    <string name="error_unknown">An unknown error occurred</string>
+    <string name="error_load_retry">Failed to load. Tap to retry</string>
+    <string name="error_no_articles">No articles found</string>
+    <string name="error_no_internet_retry">No internet connection. Tap to retry</string>
+    <string name="error_unauthorized">Unauthorized access. Please sign in again</string>
+    <string name="error_not_found">Requested resource not found</string>
     <string name="date_range_week">Last Week</string>
     <string name="date_range_month">Last Month</string>
     <string name="date_range_year">Last Year</string>

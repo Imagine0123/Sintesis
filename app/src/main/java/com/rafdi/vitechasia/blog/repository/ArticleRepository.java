@@ -9,6 +9,7 @@ import com.rafdi.vitechasia.blog.api.ApiClient;
 import com.rafdi.vitechasia.blog.api.ArticleApiService;
 import com.rafdi.vitechasia.blog.models.Article;
 import com.rafdi.vitechasia.blog.utils.NetworkUtils;
+import com.rafdi.vitechasia.blog.utils.RetryWithBackoff;
 
 import java.util.List;
 
@@ -31,6 +32,8 @@ public class ArticleRepository {
     private static volatile ArticleRepository instance;
     private final ArticleApiService apiService;
     private final Context context;
+    private final RetryWithBackoff<List<Article>> retryWithBackoff;
+    private final RetryWithBackoff<Article> singleArticleRetryWithBackoff;
     
     /**
      * Private constructor to prevent direct instantiation.
@@ -41,6 +44,8 @@ public class ArticleRepository {
     private ArticleRepository(Context context) {
         this.context = context.getApplicationContext();
         this.apiService = ApiClient.getArticleApiService();
+        this.retryWithBackoff = new RetryWithBackoff<>(context);
+        this.singleArticleRetryWithBackoff = new RetryWithBackoff<>(context);
     }
     
     /**
@@ -70,27 +75,39 @@ public class ArticleRepository {
      * @param callback The callback to handle the response or error
      */
     public void getArticles(String category, int page, int limit, final ArticleCallback callback) {
-        if (!NetworkUtils.isNetworkAvailable(context)) {
-            if (callback != null) {
-                callback.onError(context.getString(R.string.error_no_internet_connection));
-            }
-            return;
-        }
-        apiService.getArticles(category, page, limit).enqueue(new Callback<List<Article>>() {
-            @Override
-            public void onResponse(Call<List<Article>> call, Response<List<Article>> response) {
+        retryWithBackoff.execute(
+            () -> {
+                // Perform the API call synchronously
+                Response<List<Article>> response = apiService
+                    .getArticles(category, page, limit)
+                    .execute();
+                
                 if (response.isSuccessful() && response.body() != null) {
-                    callback.onSuccess(response.body());
+                    return response.body();
                 } else {
-                    callback.onError(response.message());
+                    throw new Exception(response.message());
+                }
+            },
+            new RetryWithBackoff.Callback<List<Article>>() {
+                @Override
+                public void onSuccess(List<Article> articles) {
+                    if (callback != null) {
+                        callback.onSuccess(articles);
+                    }
+                }
+
+                @Override
+                public void onError(String errorMessage, boolean isNetworkError) {
+                    if (callback != null) {
+                        if (isNetworkError) {
+                            callback.onError(context.getString(R.string.error_network_retry));
+                        } else {
+                            callback.onError(errorMessage);
+                        }
+                    }
                 }
             }
-            
-            @Override
-            public void onFailure(Call<List<Article>> call, Throwable t) {
-                callback.onError(t.getMessage());
-            }
-        });
+        );
     }
     
     /**
@@ -101,27 +118,39 @@ public class ArticleRepository {
      * @param callback The callback to handle the response or error
      */
     public void getArticleById(String id, final SingleArticleCallback callback) {
-        if (!NetworkUtils.isNetworkAvailable(context)) {
-            if (callback != null) {
-                callback.onError(context.getString(R.string.error_no_internet_connection));
-            }
-            return;
-        }
-        apiService.getArticleById(id).enqueue(new Callback<Article>() {
-            @Override
-            public void onResponse(Call<Article> call, Response<Article> response) {
+        singleArticleRetryWithBackoff.execute(
+            () -> {
+                // Perform the API call synchronously
+                Response<Article> response = apiService
+                    .getArticleById(id)
+                    .execute();
+                
                 if (response.isSuccessful() && response.body() != null) {
-                    callback.onSuccess(response.body());
+                    return response.body();
                 } else {
-                    callback.onError(response.message());
+                    throw new Exception(response.message());
+                }
+            },
+            new RetryWithBackoff.Callback<Article>() {
+                @Override
+                public void onSuccess(Article article) {
+                    if (callback != null) {
+                        callback.onSuccess(article);
+                    }
+                }
+
+                @Override
+                public void onError(String errorMessage, boolean isNetworkError) {
+                    if (callback != null) {
+                        if (isNetworkError) {
+                            callback.onError(context.getString(R.string.error_network_retry));
+                        } else {
+                            callback.onError(errorMessage);
+                        }
+                    }
                 }
             }
-            
-            @Override
-            public void onFailure(Call<Article> call, Throwable t) {
-                callback.onError(t.getMessage());
-            }
-        });
+        );
     }
     
     /**
