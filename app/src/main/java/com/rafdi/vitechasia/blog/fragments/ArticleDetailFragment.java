@@ -43,6 +43,7 @@ public class ArticleDetailFragment extends Fragment implements SwipeRefreshLayou
     private ImageButton bookmarkButton;
     private ImageButton likeButton;
     private ImageButton shareButton;
+    private ImageButton bookmarkButton2;
     private TextView likeCounter;
     private TextView shareCounter;
     private TextView viewCounter;
@@ -113,6 +114,7 @@ public class ArticleDetailFragment extends Fragment implements SwipeRefreshLayou
             shareCounter = view.findViewById(R.id.shareCounter);
             viewCounter = view.findViewById(R.id.viewCounter);
             commentsCount = view.findViewById(R.id.commentsCount);
+            bookmarkButton2 = view.findViewById(R.id.bookmarkButton2);
             scrollView = (ScrollView) view; // The root view is the ScrollView
 
             // Set up swipe to refresh
@@ -130,6 +132,7 @@ public class ArticleDetailFragment extends Fragment implements SwipeRefreshLayou
             
             // Set bookmark button click listener
             bookmarkButton.setOnClickListener(v -> toggleBookmark());
+            bookmarkButton2.setOnClickListener(v -> toggleBookmark());
 
             // Set like button click listener
             likeButton.setOnClickListener(v -> toggleLike());
@@ -267,8 +270,10 @@ public class ArticleDetailFragment extends Fragment implements SwipeRefreshLayou
         
         if (article.isBookmarked()) {
             bookmarkButton.setImageResource(R.drawable.ic_star_filled);
+            bookmarkButton2.setImageResource(R.drawable.ic_star_filled);
         } else {
             bookmarkButton.setImageResource(R.drawable.ic_star_outline);
+            bookmarkButton2.setImageResource(R.drawable.ic_star_outline);
         }
     }
 

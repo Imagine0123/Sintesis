@@ -35,6 +35,13 @@ public class ArticleVerticalAdapter extends BaseArticleAdapter<ArticleVerticalAd
         Article article = articles.get(position);
         // Use base adapter's common binding
         bindArticleData(holder, article);
+
+        // Set click listener for the entire item
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onArticleClick(article);
+            }
+        });
     }
 
     public static class ArticleViewHolder extends BaseArticleAdapter.ArticleViewHolder {
