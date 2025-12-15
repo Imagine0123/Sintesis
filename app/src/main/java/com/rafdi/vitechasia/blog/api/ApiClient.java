@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class ApiClient {
-    private static final String BASE_URL = "https://dummyimpossivleiofddtdhno.com/api/";
+    private static final String BASE_URL = "https://127.0.0.1:8090/api/";
     private static Retrofit retrofit = null;
     
     /**

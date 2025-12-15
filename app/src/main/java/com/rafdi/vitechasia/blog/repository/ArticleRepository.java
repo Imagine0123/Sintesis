@@ -2,19 +2,16 @@ package com.rafdi.vitechasia.blog.repository;
 
 import android.content.Context;
 
-import androidx.lifecycle.MutableLiveData;
-
 import com.rafdi.vitechasia.blog.R;
 import com.rafdi.vitechasia.blog.api.ApiClient;
 import com.rafdi.vitechasia.blog.api.ArticleApiService;
 import com.rafdi.vitechasia.blog.models.Article;
-import com.rafdi.vitechasia.blog.utils.NetworkUtils;
+import com.rafdi.vitechasia.blog.api.PocketBaseResponse;
 import com.rafdi.vitechasia.blog.utils.RetryWithBackoff;
 
+import java.util.Collections;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
@@ -76,37 +73,53 @@ public class ArticleRepository {
      */
     public void getArticles(String category, int page, int limit, final ArticleCallback callback) {
         retryWithBackoff.execute(
-            () -> {
-                // Perform the API call synchronously
-                Response<List<Article>> response = apiService
-                    .getArticles(category, page, limit)
-                    .execute();
-                
-                if (response.isSuccessful() && response.body() != null) {
-                    return response.body();
-                } else {
-                    throw new Exception(response.message());
-                }
-            },
-            new RetryWithBackoff.Callback<List<Article>>() {
-                @Override
-                public void onSuccess(List<Article> articles) {
-                    if (callback != null) {
-                        callback.onSuccess(articles);
-                    }
-                }
+                () -> {
+                    // Create a filter string if category is provided
+                    String filter = (category != null && !category.isEmpty()) ?
+                            String.format("category='%s'", category) : "";
 
-                @Override
-                public void onError(String errorMessage, boolean isNetworkError) {
-                    if (callback != null) {
-                        if (isNetworkError) {
-                            callback.onError(context.getString(R.string.error_network_retry));
-                        } else {
-                            callback.onError(errorMessage);
+                    // Execute the API call synchronously for retry mechanism
+                    Response<PocketBaseResponse<Article>> response = apiService
+                            .getArticles(
+                                    page,
+                                    limit,
+                                    filter.isEmpty() ?
+                                            Collections.emptyMap() :
+                                            Collections.singletonMap("filter", filter)
+                            )
+                            .execute();
+
+                    if (response.isSuccessful() && response.body() != null) {
+                        List<Article> articles = response.body().getItems();
+                        if (articles != null && !articles.isEmpty()) {
+                            return articles;
+                        }
+                        throw new Exception("No articles found");
+                    } else {
+                        throw new Exception(response.message() +
+                                (response.errorBody() != null ? ": " + response.errorBody().string() : ""));
+                    }
+                },
+
+                new RetryWithBackoff.Callback<List<Article>>() {
+                    @Override
+                    public void onSuccess(List<Article> articles) {
+                        if (callback != null) {
+                            callback.onSuccess(articles);
+                        }
+                    }
+
+                    @Override
+                    public void onError(String errorMessage, boolean isNetworkError) {
+                        if (callback != null) {
+                            if (isNetworkError) {
+                                callback.onError(context.getString(R.string.error_network_retry));
+                            } else {
+                                callback.onError(errorMessage);
+                            }
                         }
                     }
                 }
-            }
         );
     }
     
@@ -119,37 +132,42 @@ public class ArticleRepository {
      */
     public void getArticleById(String id, final SingleArticleCallback callback) {
         singleArticleRetryWithBackoff.execute(
-            () -> {
-                // Perform the API call synchronously
-                Response<Article> response = apiService
-                    .getArticleById(id)
-                    .execute();
-                
-                if (response.isSuccessful() && response.body() != null) {
-                    return response.body();
-                } else {
-                    throw new Exception(response.message());
-                }
-            },
-            new RetryWithBackoff.Callback<Article>() {
-                @Override
-                public void onSuccess(Article article) {
-                    if (callback != null) {
-                        callback.onSuccess(article);
-                    }
-                }
+                () -> {
+                    // Perform the API call synchronously
+                    Response<PocketBaseResponse<Article>> response = apiService
+                            .getArticleById(id, "")  // Empty string for expand parameter
+                            .execute();
 
-                @Override
-                public void onError(String errorMessage, boolean isNetworkError) {
-                    if (callback != null) {
-                        if (isNetworkError) {
-                            callback.onError(context.getString(R.string.error_network_retry));
-                        } else {
-                            callback.onError(errorMessage);
+                    if (response.isSuccessful() && response.body() != null) {
+                        List<Article> items = response.body().getItems();
+                        if (items != null && !items.isEmpty()) {
+                            return items.get(0);
+                        }
+                        throw new Exception("Article not found");
+                    } else {
+                        throw new Exception(response.message() +
+                                (response.errorBody() != null ? ": " + response.errorBody().string() : ""));
+                    }
+                },
+                new RetryWithBackoff.Callback<Article>() {
+                    @Override
+                    public void onSuccess(Article article) {
+                        if (callback != null) {
+                            callback.onSuccess(article);
+                        }
+                    }
+
+                    @Override
+                    public void onError(String errorMessage, boolean isNetworkError) {
+                        if (callback != null) {
+                            if (isNetworkError) {
+                                callback.onError(context.getString(R.string.error_network_retry));
+                            } else {
+                                callback.onError(errorMessage);
+                            }
                         }
                     }
                 }
-            }
         );
     }
     
