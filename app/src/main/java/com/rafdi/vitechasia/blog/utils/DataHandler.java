@@ -550,13 +550,19 @@ public class DataHandler {
         List<Article> articles = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
 
-        // Add Tech Articles - Android
+        // =========================
+        // TECH - ANDROID
+        // =========================
         articles.add(createArticle(
                 "tech1",
                 "The Future of AI in Android Development",
-                LOREM_IPSUM,
+                "Pengembangan Android sedang memasuki fase baru seiring semakin kuatnya kemampuan kecerdasan buatan yang berjalan langsung di perangkat. Pendekatan ini mengurangi ketergantungan pada layanan cloud dan memungkinkan fitur-fitur pintar bekerja secara lebih cepat dan responsif.\n\n" +
+                        "Model AI yang berjalan secara lokal kini digunakan untuk berbagai fungsi seperti prediksi teks, pengelolaan daya adaptif, pengenalan suara, dan terjemahan instan. Hal ini meningkatkan pengalaman pengguna sekaligus menjaga privasi data karena pemrosesan dilakukan langsung di perangkat.\n\n" +
+                        "Google terus mendorong adopsi AI melalui alat seperti TensorFlow Lite dan ML Kit. Dengan tooling yang semakin matang, pengembang dari berbagai skala dapat dengan mudah mengintegrasikan fitur AI tanpa memerlukan infrastruktur kompleks.\n\n" +
+                        "Dari sisi privasi, pendekatan on-device AI menjadi solusi yang sejalan dengan meningkatnya kesadaran pengguna terhadap keamanan data. Informasi sensitif tidak perlu dikirim ke server eksternal, sehingga risiko kebocoran data dapat diminimalkan.\n\n" +
+                        "Ke depan, AI diperkirakan akan menjadi bagian inti dari sistem Android, memengaruhi desain antarmuka, performa aplikasi, dan interaksi pengguna secara keseluruhan.",
                 "Alex Johnson",
-                "ai_android.jpg",
+                "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?cs=srgb&dl=pexels-fotios-photos-1092644.jpg&fm=jpg",
                 calendar.getTime(),
                 1250,
                 CATEGORY_TECH,
@@ -567,23 +573,33 @@ public class DataHandler {
         articles.add(createArticle(
                 "tech2",
                 "Android 14: New Features and Updates",
-                LOREM_IPSUM,
+                "Android 14 menghadirkan serangkaian penyempurnaan yang berfokus pada stabilitas, efisiensi, dan kontrol pengguna. Alih-alih perubahan visual besar, versi ini menitikberatkan pada pengalaman penggunaan yang lebih halus dan konsisten.\n\n" +
+                        "Optimalisasi daya menjadi salah satu sorotan utama. Sistem kini lebih cerdas dalam membatasi aktivitas latar belakang, membantu memperpanjang masa pakai baterai di berbagai jenis perangkat.\n\n" +
+                        "Dari sisi privasi, Android 14 menawarkan transparansi yang lebih baik terkait izin aplikasi. Pengguna dapat memahami dengan jelas bagaimana data mereka digunakan dan memiliki kontrol lebih besar terhadap akses aplikasi.\n\n" +
+                        "Bagi pengembang, pembaruan API mempermudah penyesuaian aplikasi dengan standar terbaru. Alat pengujian yang lebih baik juga membantu mengurangi bug sebelum rilis.\n\n" +
+                        "Secara keseluruhan, Android 14 memperkuat fondasi platform dengan fokus pada keandalan jangka panjang dan kepercayaan pengguna.",
                 "Maria Garcia",
-                "android_14.jpg",
+                "https://sc0.blr1.cdn.digitaloceanspaces.com/article/127664-csdgcybqaf-1568959931.jpg",
                 calendar.getTime(),
                 980,
                 CATEGORY_TECH,
                 SUBCATEGORY_ANDROID
         ));
 
-        // iOS Articles
+        // =========================
+        // TECH - IOS
+        // =========================
         calendar.add(Calendar.DAY_OF_MONTH, -1);
         articles.add(createArticle(
                 "tech3",
                 "iOS 17: What's New for Developers",
-                LOREM_IPSUM,
+                "iOS 17 membawa berbagai peningkatan yang ditujukan untuk mempermudah alur kerja pengembang. Alat debugging yang lebih canggih memungkinkan identifikasi masalah sejak tahap awal pengembangan.\n\n" +
+                        "Apple juga memperluas dukungan aksesibilitas, membantu pengembang menciptakan aplikasi yang lebih inklusif. Peningkatan pengelolaan media memungkinkan pengalaman visual yang lebih kaya tanpa mengorbankan performa.\n\n" +
+                        "Privasi tetap menjadi prioritas utama. iOS 17 memberikan transparansi lebih besar terkait aktivitas latar belakang aplikasi, meningkatkan kepercayaan pengguna.\n\n" +
+                        "Integrasi yang lebih baik antara Swift dan Xcode mempercepat proses build dan iterasi. Hal ini membantu tim mengembangkan aplikasi dengan lebih efisien.\n\n" +
+                        "Pendekatan Apple yang konsisten menjadikan iOS 17 sebagai pembaruan yang solid dan berorientasi jangka panjang.",
                 "James Wilson",
-                "ios17.jpg",
+                "https://media.istockphoto.com/id/1364620309/photo/iphone-13-pro.jpg?s=612x612&w=0&k=20&c=2h5Q46wh-eRyPwh4KKnJhCKFWqcd2ltgv9tdaULDdbc=",
                 calendar.getTime(),
                 1100,
                 CATEGORY_TECH,
@@ -594,23 +610,33 @@ public class DataHandler {
         articles.add(createArticle(
                 "tech4",
                 "Building Your First SwiftUI App",
-                LOREM_IPSUM,
+                "SwiftUI mengubah cara pengembang membangun antarmuka aplikasi dengan pendekatan deklaratif. Pengembang cukup mendeskripsikan tampilan dan perilaku UI, sementara sistem menangani pembaruan secara otomatis.\n\n" +
+                        "Bagi pemula, SwiftUI mengurangi kompleksitas karena minim boilerplate code. Tata letak secara otomatis menyesuaikan berbagai ukuran layar dan pengaturan aksesibilitas.\n\n" +
+                        "Manajemen state menjadi konsep penting dalam SwiftUI. Dengan memahami alur data, pengembang dapat membangun antarmuka yang responsif dan mudah dirawat.\n\n" +
+                        "Animasi dan transisi dapat diterapkan dengan sangat sederhana, memungkinkan pengalaman pengguna yang lebih menarik.\n\n" +
+                        "SwiftUI kini menjadi pilihan utama untuk pengembangan aplikasi modern di ekosistem Apple.",
                 "Sarah Chen",
-                "swiftui.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL5o2QWel7p5B_DZ3UmY_SDzwseR_VYA0MRA&s",
                 calendar.getTime(),
                 850,
                 CATEGORY_TECH,
                 SUBCATEGORY_IOS
         ));
 
-        // Web Development Articles
+        // =========================
+        // TECH - WEB
+        // =========================
         calendar.add(Calendar.DAY_OF_MONTH, -1);
         articles.add(createArticle(
                 "tech5",
                 "Building Scalable Web Applications in 2023",
-                LOREM_IPSUM,
+                "Skalabilitas menjadi tantangan utama dalam pengembangan aplikasi web modern. Arsitektur berbasis microservices dan serverless semakin populer untuk mengatasi lonjakan trafik.\n\n" +
+                        "Strategi caching, observabilitas sistem, dan pipeline deployment otomatis berperan penting dalam menjaga performa aplikasi.\n\n" +
+                        "Tim yang berinvestasi pada fondasi teknis yang kuat dapat beradaptasi lebih cepat terhadap perubahan kebutuhan pengguna.\n\n" +
+                        "Pemanfaatan edge computing juga membantu mengurangi latensi dengan mendekatkan konten ke pengguna.\n\n" +
+                        "Pendekatan ini memungkinkan aplikasi web tetap andal meskipun skala pengguna terus bertambah.",
                 "David Kim",
-                "web_dev.jpg",
+                "https://www.businessofapps.com/wp-content/uploads/2019/11/dd_scalable_web_apps_cover.jpg",
                 calendar.getTime(),
                 1320,
                 CATEGORY_TECH,
@@ -621,23 +647,33 @@ public class DataHandler {
         articles.add(createArticle(
                 "tech6",
                 "React vs Vue vs Angular in 2023",
-                LOREM_IPSUM,
+                "Framework frontend telah berkembang menjadi ekosistem yang stabil dan matang. React menawarkan komunitas besar, Vue dikenal ramah bagi pengembang, sementara Angular unggul untuk aplikasi skala besar.\n\n" +
+                        "Pemilihan framework sering kali bergantung pada kebutuhan tim dan kompleksitas proyek.\n\n" +
+                        "Alih-alih mengejar tren, fokus pada arsitektur yang jelas dan praktik pengujian yang baik akan menghasilkan aplikasi yang lebih tahan lama.\n\n" +
+                        "Ketiga framework ini mampu menghasilkan aplikasi berkualitas jika digunakan dengan tepat.\n\n" +
+                        "Keputusan terbaik adalah yang paling sesuai dengan konteks proyek dan keahlian tim.",
                 "Emma Davis",
-                "frameworks.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMx_A4T9rp-M_k5hn5d7rKuqUa3CPyOunNg&s",
                 calendar.getTime(),
                 1500,
                 CATEGORY_TECH,
                 SUBCATEGORY_WEB
         ));
 
-        // AI Articles
+        // =========================
+        // TECH - AI
+        // =========================
         calendar.add(Calendar.DAY_OF_MONTH, -1);
         articles.add(createArticle(
                 "tech7",
                 "The Future of AI in Mobile Development",
-                LOREM_IPSUM,
+                "AI pada perangkat mobile kini bergerak menuju pendekatan hybrid dan on-device. Hal ini memungkinkan fitur cerdas berjalan lebih cepat tanpa ketergantungan koneksi internet.\n\n" +
+                        "Aplikasi dapat memanfaatkan pengenalan suara, kamera pintar, dan antarmuka adaptif secara real-time.\n\n" +
+                        "Model yang lebih kecil dan teroptimasi memudahkan distribusi ke berbagai perangkat.\n\n" +
+                        "Perkembangan ini membuka peluang inovasi baru di bidang aplikasi mobile.\n\n" +
+                        "AI diprediksi akan menjadi standar dalam pengembangan aplikasi modern.",
                 "Alex Johnson",
-                "ai_mobile.jpg",
+                "https://media.licdn.com/dms/image/v2/D4E12AQEOAPlMZuV8uA/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1721198653325?e=2147483647&v=beta&t=sAzUoz6YdLUQgBkXLgaVBuYA_QWLWlcczCHji3Tigdo",
                 calendar.getTime(),
                 2100,
                 CATEGORY_TECH,
@@ -648,23 +684,33 @@ public class DataHandler {
         articles.add(createArticle(
                 "tech8",
                 "Getting Started with Machine Learning",
-                LOREM_IPSUM,
+                "Machine learning kini lebih mudah dipelajari berkat library tingkat tinggi dan model siap pakai.\n\n" +
+                        "Pemula dapat memulai dengan konsep dasar seperti klasifikasi dan regresi.\n\n" +
+                        "Persiapan data dan evaluasi model menjadi faktor penting dalam keberhasilan proyek.\n\n" +
+                        "Pemahaman dasar ini membantu menghindari kesalahan umum seperti overfitting.\n\n" +
+                        "Dengan pendekatan yang tepat, machine learning dapat diterapkan secara efektif.",
                 "Robert Taylor",
-                "ml_basics.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRbMXxQpsINp70uZ_XBBQ5jNqIdAi-CKYVSA&s",
                 calendar.getTime(),
                 1750,
                 CATEGORY_TECH,
                 SUBCATEGORY_AI
         ));
 
-        // Add Health Articles
+        // =========================
+        // HEALTH
+        // =========================
         calendar.add(Calendar.DAY_OF_MONTH, -1);
         articles.add(createArticle(
                 "health1",
                 "10 Essential Exercises for Home Workouts",
-                LOREM_IPSUM,
+                "Olahraga di rumah dapat tetap efektif dengan rutinitas yang seimbang.\n\n" +
+                        "Latihan ini mencakup kekuatan, mobilitas, dan kardio tanpa peralatan khusus.\n\n" +
+                        "Konsistensi lebih penting dibanding intensitas tinggi.\n\n" +
+                        "Peningkatan bertahap membantu mencegah cedera.\n\n" +
+                        "Gaya hidup aktif mendukung kesehatan jangka panjang.",
                 "Dr. Michael Brown",
-                "home_workout.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfWgoLdMrUq7_YZyH8i17i6r2dnhNRaq5Mhw&s",
                 calendar.getTime(),
                 1530,
                 CATEGORY_HEALTH,
@@ -675,23 +721,33 @@ public class DataHandler {
         articles.add(createArticle(
                 "health2",
                 "The Science of Intermittent Fasting",
-                LOREM_IPSUM,
+                "Intermittent fasting menjadi populer sebagai metode pengelolaan berat badan.\n\n" +
+                        "Penelitian menunjukkan manfaat terhadap sensitivitas insulin.\n\n" +
+                        "Namun, metode ini tidak cocok untuk semua orang.\n\n" +
+                        "Konsultasi medis sangat dianjurkan sebelum memulai.\n\n" +
+                        "Pendekatan berkelanjutan adalah kunci keberhasilan.",
                 "Dr. Emily Wilson",
-                "nutrition.jpg",
+                "https://www.leapstore.in/cdn/shop/articles/22_December_Fasting_Blog_Banner.png?v=1703662458",
                 calendar.getTime(),
                 2100,
                 CATEGORY_HEALTH,
                 SUBCATEGORY_NUTRITION
         ));
 
-        // Add Sports Articles
+        // =========================
+        // SPORTS
+        // =========================
         calendar.add(Calendar.DAY_OF_MONTH, -1);
         articles.add(createArticle(
                 "sport1",
                 "Local Team Wins Championship in Overtime Thriller",
-                LOREM_IPSUM,
+                "Pertandingan final berlangsung dramatis hingga babak perpanjangan waktu.\n\n" +
+                        "Gol penentuan kemenangan disambut sorak sorai penonton.\n\n" +
+                        "Pelatih memuji kerja sama dan mental juara tim.\n\n" +
+                        "Pemain cadangan memberikan kontribusi penting.\n\n" +
+                        "Perayaan kemenangan direncanakan sepanjang akhir pekan.",
                 "John Sportsman",
-                "football_championship.jpg",
+                "https://ocsportszone.com/wp-content/uploads/2025/11/DSC04382-Pano-1-1-768x383.jpg",
                 calendar.getTime(),
                 3200,
                 CATEGORY_SPORTS,
@@ -702,23 +758,33 @@ public class DataHandler {
         articles.add(createArticle(
                 "sport2",
                 "NBA Season Preview: Top Teams to Watch",
-                LOREM_IPSUM,
+                "Musim NBA yang baru menghadirkan persaingan ketat.\n\n" +
+                        "Perubahan roster meningkatkan ekspektasi penggemar.\n\n" +
+                        "Pemain muda dan veteran akan menentukan hasil.\n\n" +
+                        "Pertandingan awal musim menjadi indikator kekuatan tim.\n\n" +
+                        "Persaingan konferensi diprediksi berlangsung sengit.",
                 "Jane Hooper",
-                "nba_preview.jpg",
+                "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/v1729070242/primary/inujhovgebftbhqvmqf0",
                 calendar.getTime(),
                 2750,
                 CATEGORY_SPORTS,
                 SUBCATEGORY_BASKETBALL
         ));
 
-        // Add News Articles
+        // =========================
+        // NEWS
+        // =========================
         calendar.add(Calendar.DAY_OF_MONTH, -1);
         articles.add(createArticle(
                 "news1",
                 "Global Leaders Sign Historic Climate Agreement",
-                LOREM_IPSUM,
+                "Para pemimpin dunia menandatangani kesepakatan iklim bersejarah.\n\n" +
+                        "Kesepakatan ini menargetkan pengurangan emisi secara agresif.\n\n" +
+                        "Pendanaan untuk negara berkembang turut disepakati.\n\n" +
+                        "Pemantauan progres akan dilakukan secara berkala.\n\n" +
+                        "Aktivis mendorong implementasi yang lebih cepat.",
                 "Global News Network",
-                "climate_summit.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWjyDpCjZ7kyT5geshacLD0NcuaBaDpRNN7g&s",
                 calendar.getTime(),
                 4100,
                 CATEGORY_NEWS,
@@ -729,19 +795,22 @@ public class DataHandler {
         articles.add(createArticle(
                 "news2",
                 "New Economic Policy Aims to Boost Local Businesses",
-                LOREM_IPSUM,
+                "Pemerintah meluncurkan kebijakan ekonomi baru.\n\n" +
+                        "Insentif pajak ditujukan untuk usaha kecil dan menengah.\n\n" +
+                        "Program ini diharapkan menciptakan lapangan kerja.\n\n" +
+                        "Ekonom menilai dampak jangka pendek cukup positif.\n\n" +
+                        "Reformasi struktural tetap dibutuhkan untuk pertumbuhan berkelanjutan.",
                 "Financial Times",
-                "economic_policy.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwa5Bf3kdH7KzhnOmrNlWWPEkKM5VOr4TP8A&s",
                 calendar.getTime(),
                 1870,
                 CATEGORY_NEWS,
                 SUBCATEGORY_ECONOMY
         ));
 
-        // Add more articles for better coverage...
-
         return articles;
     }
+
 
     /**
      * Gets popular articles, trying the API first and falling back to dummy data
@@ -864,9 +933,8 @@ public class DataHandler {
     }
 
     private static Article createArticle(String id, String title, String content, String authorName,
-                                         String imageName, Date date, int viewCount,
+                                         String imageUrl, Date date, int viewCount,
                                          String categoryId, String subcategoryId) {
-        String imageUrl = "https://example.com/images/" + imageName;
         Article article = new Article(
                 id,
                 title,
@@ -881,7 +949,6 @@ public class DataHandler {
                 viewCount,
                 viewCount / 10
         );
-
         return article;
     }
 }
