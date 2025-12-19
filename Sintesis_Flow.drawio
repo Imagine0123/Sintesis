@@ -1,63 +1,57 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 OPR/124.0.0.0 (Edition std-1)" version="29.2.7">
   <diagram name="Page-1" id="P2YFHpEU-Dc-2nbT8EJE">
-    <mxGraphModel>
+    <mxGraphModel dx="1305" dy="566" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="User" vertex="1">
-          <mxGeometry height="592" width="150" as="geometry" />
-        </mxCell>
-        <mxCell id="3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="ArticleApiService" vertex="1">
-          <mxGeometry height="592" width="150" x="206" as="geometry" />
-        </mxCell>
-        <mxCell id="4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="DataHandler" vertex="1">
-          <mxGeometry height="592" width="150" x="406" as="geometry" />
+          <mxGeometry height="490" width="150" as="geometry" />
         </mxCell>
         <mxCell id="5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="HomeFragment" vertex="1">
-          <mxGeometry height="592" width="150" x="606" as="geometry" />
+          <mxGeometry height="320" width="150" x="480" as="geometry" />
         </mxCell>
         <mxCell id="6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="BookmarkFragment" vertex="1">
-          <mxGeometry height="592" width="159" x="806" as="geometry" />
+          <mxGeometry height="380" width="159" x="630" as="geometry" />
         </mxCell>
         <mxCell id="7" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="PopularFragment" vertex="1">
-          <mxGeometry height="592" width="150" x="1015" as="geometry" />
+          <mxGeometry height="430" width="150" x="789" as="geometry" />
         </mxCell>
         <mxCell id="8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="LatestFragment" vertex="1">
-          <mxGeometry height="592" width="150" x="1215" as="geometry" />
+          <mxGeometry height="490" width="150" x="939" as="geometry" />
         </mxCell>
-        <mxCell id="9" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="3" value="Request articles">
+        <mxCell id="9" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="HPsxK-IiYr39jkwZ2nTV-17" value="Request articles">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="187" y="109" />
+              <mxPoint x="220" y="110" />
             </Array>
+            <mxPoint x="190" y="120" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="10" edge="1" parent="1" source="3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="2" value="Return articles data">
+        <mxCell id="11" edge="1" parent="1" source="HPsxK-IiYr39jkwZ2nTV-17" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" target="HPsxK-IiYr39jkwZ2nTV-19" value="Send articles data">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="190" y="163" />
+              <mxPoint x="320" y="110" />
             </Array>
+            <mxPoint x="340" y="150" as="sourcePoint" />
+            <mxPoint x="480.5" y="100" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="11" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="4" value="Send articles data">
+        <mxCell id="12" edge="1" parent="1" source="HPsxK-IiYr39jkwZ2nTV-19" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="2" value="Processed articles data">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="287" y="217" />
+              <mxPoint x="325.37" y="271" />
             </Array>
+            <mxPoint x="516.0004347826087" y="270" as="sourcePoint" />
+            <mxPoint x="110.00043478260875" y="271" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="12" edge="1" parent="1" source="4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="2" value="Processed articles data">
+        <mxCell id="13" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="5" value="Display various articles">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="290" y="271" />
+              <mxPoint x="372.37" y="325" />
             </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="13" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="5" value="Display articles">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="387" y="325" />
-            </Array>
+            <mxPoint x="60.00043478260874" y="325" as="sourcePoint" />
+            <mxPoint x="666.0004347826087" y="320" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="14" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="6" value="Display bookmarked articles">
@@ -80,6 +74,12 @@
               <mxPoint x="691" y="487" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="HPsxK-IiYr39jkwZ2nTV-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ArticleApiService" vertex="1">
+          <mxGeometry height="60" width="120" x="200" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HPsxK-IiYr39jkwZ2nTV-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="DataHandler" vertex="1">
+          <mxGeometry height="60" width="120" x="410" y="130" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
