@@ -1,85 +1,121 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 OPR/124.0.0.0 (Edition std-1)" version="29.2.7">
   <diagram name="Page-1" id="P2YFHpEU-Dc-2nbT8EJE">
-    <mxGraphModel dx="1305" dy="566" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1771" dy="769" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="User" vertex="1">
-          <mxGeometry height="490" width="150" as="geometry" />
-        </mxCell>
-        <mxCell id="5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="HomeFragment" vertex="1">
-          <mxGeometry height="320" width="150" x="480" as="geometry" />
-        </mxCell>
-        <mxCell id="6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="BookmarkFragment" vertex="1">
-          <mxGeometry height="380" width="159" x="630" as="geometry" />
-        </mxCell>
-        <mxCell id="7" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="PopularFragment" vertex="1">
-          <mxGeometry height="430" width="150" x="789" as="geometry" />
-        </mxCell>
-        <mxCell id="8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="LatestFragment" vertex="1">
-          <mxGeometry height="490" width="150" x="939" as="geometry" />
-        </mxCell>
-        <mxCell id="9" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="HPsxK-IiYr39jkwZ2nTV-17" value="Request articles">
+        <mxCell id="Tuid_FFF7SdM2eihcanp-170" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-180" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Tuid_FFF7SdM2eihcanp-181" value="mengirim data">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="220" y="110" />
+              <mxPoint x="130" y="180" />
+              <mxPoint x="134" y="159" />
             </Array>
-            <mxPoint x="190" y="120" as="targetPoint" />
+            <mxPoint x="24.071428571428214" y="159" as="sourcePoint" />
+            <mxPoint x="224.5" y="220" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="11" edge="1" parent="1" source="HPsxK-IiYr39jkwZ2nTV-17" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" target="HPsxK-IiYr39jkwZ2nTV-19" value="Send articles data">
+        <mxCell id="Tuid_FFF7SdM2eihcanp-171" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-181" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Tuid_FFF7SdM2eihcanp-182" value="mengatur koneksi">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="320" y="110" />
+              <mxPoint x="130" y="270" />
+              <mxPoint x="434" y="723" />
             </Array>
-            <mxPoint x="340" y="150" as="sourcePoint" />
-            <mxPoint x="480.5" y="100" as="targetPoint" />
+            <mxPoint x="324.07142857142844" y="723" as="sourcePoint" />
+            <mxPoint x="524.5" y="670" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="12" edge="1" parent="1" source="HPsxK-IiYr39jkwZ2nTV-19" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="2" value="Processed articles data">
+        <mxCell id="Tuid_FFF7SdM2eihcanp-172" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-182" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Tuid_FFF7SdM2eihcanp-267" value="mengambil data">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="325.37" y="271" />
+              <mxPoint x="130" y="420" />
+              <mxPoint x="634" y="777" />
             </Array>
-            <mxPoint x="516.0004347826087" y="270" as="sourcePoint" />
-            <mxPoint x="110.00043478260875" y="271" as="targetPoint" />
+            <mxPoint x="524.0714285714284" y="776.9999999999998" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="13" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="5" value="Display various articles">
+        <mxCell id="Tuid_FFF7SdM2eihcanp-173" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-267" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Tuid_FFF7SdM2eihcanp-268" value="memproses data">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="372.37" y="325" />
+              <mxPoint x="170" y="570" />
             </Array>
-            <mxPoint x="60.00043478260874" y="325" as="sourcePoint" />
-            <mxPoint x="666.0004347826087" y="320" as="targetPoint" />
+            <mxPoint x="270" y="540" as="sourcePoint" />
+            <mxPoint x="130" y="680" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="14" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="6" value="Display bookmarked articles">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="489" y="379" />
-            </Array>
-          </mxGeometry>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-180" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Server API" vertex="1">
+          <mxGeometry height="60" width="120" x="70" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="15" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="7" value="Display popular articles">
+        <mxCell id="Tuid_FFF7SdM2eihcanp-181" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ApiClient" vertex="1">
+          <mxGeometry height="60" width="120" x="70" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-182" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ArticleApiService" vertex="1">
+          <mxGeometry height="60" width="120" x="70" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-267" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Repository" vertex="1">
+          <mxGeometry height="60" width="120" x="70" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-271" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-268" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Tuid_FFF7SdM2eihcanp-270">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="591" y="433" />
+              <mxPoint x="250" y="630" />
+              <mxPoint x="250" y="630" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="16" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="8" value="Display latest articles">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="691" y="487" />
-            </Array>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-273" connectable="0" parent="Tuid_FFF7SdM2eihcanp-271" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="mengirim data terproses" vertex="1">
+          <mxGeometry relative="1" x="-0.0075" y="3" as="geometry">
+            <mxPoint y="3" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="HPsxK-IiYr39jkwZ2nTV-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ArticleApiService" vertex="1">
-          <mxGeometry height="60" width="120" x="200" y="50" as="geometry" />
+        <mxCell id="Tuid_FFF7SdM2eihcanp-268" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="DataHandler" vertex="1">
+          <mxGeometry height="60" width="120" x="70" y="600" as="geometry" />
         </mxCell>
-        <mxCell id="HPsxK-IiYr39jkwZ2nTV-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="DataHandler" vertex="1">
-          <mxGeometry height="60" width="120" x="410" y="130" as="geometry" />
+        <mxCell id="Tuid_FFF7SdM2eihcanp-275" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-270" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Tuid_FFF7SdM2eihcanp-274">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-276" connectable="0" parent="Tuid_FFF7SdM2eihcanp-275" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="menyediakan LiveData" vertex="1">
+          <mxGeometry relative="1" x="-0.1111" y="3" as="geometry">
+            <mxPoint x="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-270" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ViewModel" vertex="1">
+          <mxGeometry height="60" width="120" x="350" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-279" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-274" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Tuid_FFF7SdM2eihcanp-278" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-280" connectable="0" parent="Tuid_FFF7SdM2eihcanp-279" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="menampilkan artikel" vertex="1">
+          <mxGeometry relative="1" x="-0.1429" y="-4" as="geometry">
+            <mxPoint x="-4" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-274" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Fragment" vertex="1">
+          <mxGeometry height="60" width="120" x="350" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-282" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-278" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Tuid_FFF7SdM2eihcanp-281" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-283" connectable="0" parent="Tuid_FFF7SdM2eihcanp-282" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="membuat tampilan" vertex="1">
+          <mxGeometry relative="1" x="0.375" y="-2" as="geometry">
+            <mxPoint x="-2" y="15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-278" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Adapter" vertex="1">
+          <mxGeometry height="60" width="120" x="350" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-285" edge="1" parent="1" source="Tuid_FFF7SdM2eihcanp-281" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Tuid_FFF7SdM2eihcanp-284" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-286" connectable="0" parent="Tuid_FFF7SdM2eihcanp-285" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="mengatur navigasi" vertex="1">
+          <mxGeometry relative="1" x="0.0107" y="-2" as="geometry">
+            <mxPoint x="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-281" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Activity" vertex="1">
+          <mxGeometry height="60" width="120" x="350" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="Tuid_FFF7SdM2eihcanp-284" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="User" vertex="1">
+          <mxGeometry height="60" width="120" x="350" y="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
